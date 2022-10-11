@@ -21,9 +21,18 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'uglifier', '~> 4.2'
 
+gem 'coffee-rails', '~> 5.0'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+
+gem 'bulma-rails', '~> 0.9.3'
+gem 'simple_form', '~> 5.1'
+gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'gravatar_image_tag', '~> 1.2'
+gem 'carrierwave', '~> 2.2', '>= 2.2.2'
+gem 'mini_magick', '~> 4.11'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -48,6 +57,9 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
+  gem 'better_errors', '~> 2.9', '>= 2.9.1'
+  gem 'guard', '~> 2.18'
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
