@@ -6,6 +6,10 @@ class InstrumentsController < ApplicationController
   # GET /instruments.json
   def index
     @instruments = Instrument.all.order("created_at desc")
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render :json => @instruments }
+    end
   end
 
   # GET /instruments/1
@@ -55,11 +59,11 @@ class InstrumentsController < ApplicationController
   # DELETE /instruments/1
   # DELETE /instruments/1.json
   def destroy
-    @instrument.destroy
     respond_to do |format|
       format.html { redirect_to instruments_url, notice: 'Instrument was successfully destroyed.' }
       format.json { head :no_content }
     end
+    @instrument.destroy
   end
 
   private

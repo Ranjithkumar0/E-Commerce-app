@@ -32,8 +32,6 @@ gem 'simple_form', '~> 5.1'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'carrierwave', '~> 2.2', '>= 2.2.2'
-gem 'mini_magick', '~> 4.11'
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
