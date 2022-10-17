@@ -58,13 +58,15 @@ class InstrumentsController < ApplicationController
 
   # DELETE /instruments/1
   # DELETE /instruments/1.json
-  def destroy
+  def  destroy
+    @instrument = Instrument.find(params[:id])
+    @instrument.destroy
     respond_to do |format|
       format.html { redirect_to instruments_url, notice: 'Instrument was successfully destroyed.' }
       format.json { head :no_content }
     end
-    @instrument.destroy
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
