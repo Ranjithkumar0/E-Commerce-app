@@ -18,8 +18,10 @@ class Instrument < ApplicationRecord
   private
 
   def not_referenced_by_any_line_item
-
-
+    unless line_items.empty?
+      errors.add(:base, "Line items present")
+      throw :abort
+    end
   end
 
 end
