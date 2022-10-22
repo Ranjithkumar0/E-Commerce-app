@@ -14,5 +14,7 @@
         <span class="f5 has-text-grey">Total:</span> <%= number_to_currency(@cart.total_price) %>
       </h4>
     </div>
+    <%= link_to 'Buy', payments_path, class: "button is-danger" %>
+    
   </div>
 </section>

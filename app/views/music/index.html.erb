@@ -1,0 +1,10 @@
+<% if @music_instruments.any? %>
+    <div class="instrument-grid">
+      <%= render @music_instruments, instrument: @instrument %>
+    </div>
+  <% else %>
+  <article class="message">
+    <div class="message-body">You haven't added any instrument.</div>
+  </article>
+  <% end %>
+</section>

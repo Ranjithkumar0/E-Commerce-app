@@ -21,6 +21,7 @@ class InstrumentsController < ApplicationController
   def edit
   end
 
+  
   # POST /instruments
   # POST /instruments.json
   def create
@@ -58,6 +59,15 @@ class InstrumentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to instruments_url, notice: 'Instrument was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def music  
+    type = params[:type]
+    if type == "add"
+      current_user.music_additions << @instrument 
+    elsif type == "remove"
+      current_user.music_additions.delete(@instrument)
     end
   end
 
