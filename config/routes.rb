@@ -13,8 +13,8 @@ Rails.application.routes.draw do
       put "add", to: "instruments#music"
       put "remove", to: "instruments#music"
     end 
+    resources :music, only:[:index]
   end
-   resources :music, only:[:index]
 
   root 'instruments#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
