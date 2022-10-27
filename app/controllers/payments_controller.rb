@@ -8,6 +8,9 @@ class PaymentsController < ApplicationController
         @payments = current_user.music_ids
         @instrument = LineItem.all
         puts @instrument.to_a
+
+        delete_instruments
+        
     end
 
     

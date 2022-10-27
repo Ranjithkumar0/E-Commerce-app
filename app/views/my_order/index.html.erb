@@ -1,0 +1,29 @@
+
+
+<div class="instrument-index-grid pt4">
+    <% @my_order.each do |order| %>
+    <% instrument = Instrument.find(order.instrument_id) %>
+
+    <div class="instrument border-light">
+      <div class="instrument-thumb">
+      <%= link_to image_tag(instrument.image), instruments_path  if instrument.image.attached? %>
+      <% if instrument.condition? %>
+        <div class="condition">
+          <span class="tag is-dark"><%= instrument.condition %></span>
+        </div>
+      <% end %>
+      </div>
+
+
+    <div class="pa3">
+
+      <h3 class="fw7 f4 title"><%= link_to instrument.title, instrument %></h3>
+
+      <p class="has-text-gray fg pt1">Sold by <%= instrument.user.name %></p>
+
+      <p class="f3 fw6 has-text-right pt2 price">Price :<%= number_to_currency(instrument.price) %></p>
+
+    </div>
+  </div>
+    <% end %>
+</div>

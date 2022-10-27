@@ -45,7 +45,7 @@
           <% if user_signed_in? %>
 
             <% if total_cart_items %>
-              <%= link_to cart_path(@cart), class:"navbar-item button is-warning" do %>
+              <%= link_to checkout_index_path, class:"navbar-item button is-warning" do %>
               </span>
               <span>Cart
                 <%= cart_count_over_one %>
@@ -53,6 +53,7 @@
               <% end %>
             <% end %>
           
+          <%= link_to 'My Order', my_order_index_path , class: "navbar-item button is-light" %>
 
           <%= link_to 'Sell', new_instrument_path , class: "navbar-item button is-dark" %>
             <%= link_to 'Profile', edit_user_registration_path, class: "navbar-item button is-light"%>

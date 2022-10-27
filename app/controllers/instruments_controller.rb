@@ -12,6 +12,31 @@ class InstrumentsController < ApplicationController
   def show
   end
 
+  def add
+    @my_token = Checkout.filter_by_user_id(current_user.id) if user_signed_in?
+
+    @my_token.each do |token|
+      if ( token.instrument_id == params[:id].to_i )
+        redirect_to root_path and return
+      end
+    end
+
+    @instrument = Instrument.find(params[:id])
+    @my_instrument = MyInstrument.new()
+    @my_instrument = @instrument
+
+    @my_instrument.save
+
+    @checkout = Checkout.new()
+    @checkout.user_id = current_user.id if user_signed_in?
+    @checkout.instrument_id = params[:id].to_i
+    if @checkout.save
+      redirect_to checkout_index_path
+    else
+      redirect_to root_path
+    end
+  end
+
   # GET /instruments/new
   def new
     @instrument = current_user.instruments.build

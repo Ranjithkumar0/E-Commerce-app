@@ -8,13 +8,16 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'registrations'
   }
-  resources :instruments do 
+  resources :checkout
+  resources :my_order
+    resources :instruments do 
     member do 
       put "add", to: "instruments#music"
       put "remove", to: "instruments#music"
     end 
     resources :music, only:[:index]
   end
+  post "/instruments/:id", to: 'instruments#add', as: 'add'
 
   root 'instruments#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
