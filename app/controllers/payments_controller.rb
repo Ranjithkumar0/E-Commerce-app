@@ -7,7 +7,7 @@ class PaymentsController < ApplicationController
         # @payments =current_user.music_additions
         @payments = current_user.music_ids
         @instrument = LineItem.all
-        puts @instrument.to_i
+        puts @instrument.to_a
     end
 
     

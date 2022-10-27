@@ -65,9 +65,9 @@ class InstrumentsController < ApplicationController
   def music  
     type = params[:type]
     if type == "add"
-      current_user.music_additions << @instrument 
+      current_user.music_ids << @instrument 
     elsif type == "remove"
-      current_user.music_additions.delete(@instrument)
+      current_user.music_ids.delete(@instrument)
     end
   end
 
