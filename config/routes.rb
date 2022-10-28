@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :line_items
-  
+  resources :sold_to
   resources :payments
   get "/payments/show" => "payments#index"
     resources :carts

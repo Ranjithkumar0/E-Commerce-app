@@ -1,7 +1,8 @@
 <div class="container">
     <div class="row">
-      <% @my_order.each do |order| %>
-      <% instrument = Instrument.find(order.instrument_id) %>
+      <% @instruments.each do |instrument| %>
+        <% if instrument.sold_to.nil? %>
+        <% else %>
         <div class="col-md-8">
             <div class="people-nearby">
               
@@ -12,7 +13,8 @@
                   </div>
                   <div class="col-md-7 col-sm-7">
                     <h5><a href="#" class="profile-link"><%= link_to instrument.title, instrument %></a></h5>
-                    <p class="text-muted">Sold by <%= instrument.user.name %></p>
+                    <% @sold_to = User.find(instrument.sold_to) %>
+                    <p class="text-muted">Sold to <%= @sold_to.name %></p>
                   </div>
                   <div class="col-md-3 col-sm-3">
                     Price :<%= number_to_currency(instrument.price) %>
@@ -21,12 +23,13 @@
               </div>
             </div>
     	</div>
+        <% end %>
       <% end %>
 	</div>
 </div>
 
 
 
-<div class="text-center">
+<%# <div class="text-center">
 <%= will_paginate %>
-  </div>
+  </div> 

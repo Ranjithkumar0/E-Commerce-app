@@ -18,12 +18,14 @@ class ApplicationController < ActionController::Base
         @my_order.instrument_id = token.instrument_id
         
         @my_order.save
+
         
         instrument = Instrument.find(token.instrument_id)
 
         puts "#################################\n",instrument.inspect,"\n ################"
 
         instrument.status = "sold"
+        instrument.sold_to = current_user.id
         instrument.save
 
         token.destroy 
