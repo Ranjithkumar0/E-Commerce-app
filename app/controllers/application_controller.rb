@@ -11,20 +11,22 @@ class ApplicationController < ActionController::Base
     def delete_instruments
       
       @my_token = Checkout.filter_by_user_id(current_user.id) if user_signed_in?
-      @my_order = MyOrder.new()
       
       @my_token.each do |token|
+        @my_order = MyOrder.new()
         @my_order.user_id = current_user.id if user_signed_in?
         @my_order.instrument_id = token.instrument_id
         
-       @my_order.save
+        @my_order.save
         
         instrument = Instrument.find(token.instrument_id)
 
-        puts instrument.inspect
-        instrument.destroy
-        token.destroy
-        # @my_order.save
+        puts "#################################\n",instrument.inspect,"\n ################"
+
+        instrument.status = "sold"
+        instrument.save
+
+        token.destroy 
       end
 
 

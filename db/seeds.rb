@@ -1,7 +1,19 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Instrument.destroy_all
+
+instruments = []
+
+20.times do |t|
+    new_instrument = {
+        title: Faker::Name.last_name,
+        price: rand(1000..10000),
+        model: "Henrix 40C 40-Inch Cutaway",
+        description: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false),
+        brand: [ "Fender", "Gibson", "Epiphone", "ESP", "Martin", "Dean", 'Taylor', 'Jackson', 'PRS',  'Ibanez', 'Charvel', 'Washburn' ].sample,
+        finish: [ 'Black', 'White', 'Navy', 'Blue', 'Red', 'Clear', 'Satin', 'Yellow', 'Seafoam' ].sample,
+        condition: [ 'New', 'Excellent', 'Mint', 'Used', 'Fair', 'Poor' ].sample,
+        user_id: [1,4,6].sample
+    }
+    instruments.push(new_instrument)
+end
+
+Instrument.create(instruments)

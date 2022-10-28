@@ -27,6 +27,8 @@ gem 'coffee-rails', '~> 5.0'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+gem 'faker', '~> 2.23.0'
+
 gem 'bulma-rails', '~> 0.9.3'
 gem 'simple_form', '~> 5.1'
 gem 'devise', '~> 4.8', '>= 4.8.1'

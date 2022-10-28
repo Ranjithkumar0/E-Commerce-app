@@ -18,7 +18,9 @@
       <%# </ul> %> 
 
       <div class="feature-image">
+      <% if @instrument.image.attached? %>
         <%= image_tag @instrument.image%>
+      <% end %>
       </div>
 
       <div class="content pa4 mt3 bg-white border-radius-3">
@@ -60,12 +62,14 @@
       <div class="bg-white pa4 border-radius-3">
         <h4 class="title is-5 has-text-centered"><%= number_to_currency(@instrument.price) %></h4>
         <p class="has-text-centered mb4">Sold by <%= @instrument.user.name %></p>
-        <%= button_to 'Add to cart', add_path, class: 'button is-warning add-to-cart' %>
+        <% if @instrument.status == "active" %>
+          <%= button_to 'Add to cart', add_path, class: 'button is-warning add-to-cart' %>
+        <%end%>
       </div>
     </div>
   </div>
 
-  <% if instrument_author(@instrument) %>
+  <% if instrument_author(@instrument) and @instrument.status == "active" %>
     <%= link_to 'Edit', edit_instrument_path(@instrument), class: 'button' %>
   <% end %>
 </section>
