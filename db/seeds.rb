@@ -2,7 +2,7 @@ Instrument.destroy_all
 
 instruments = []
 
-20.times do |t|
+30.times do |t|
     new_instrument = {
         title: Faker::Name.last_name,
         price: rand(1000..10000),
@@ -11,7 +11,7 @@ instruments = []
         brand: [ "Fender", "Gibson", "Epiphone", "ESP", "Martin", "Dean", 'Taylor', 'Jackson', 'PRS',  'Ibanez', 'Charvel', 'Washburn' ].sample,
         finish: [ 'Black', 'White', 'Navy', 'Blue', 'Red', 'Clear', 'Satin', 'Yellow', 'Seafoam' ].sample,
         condition: [ 'New', 'Excellent', 'Mint', 'Used', 'Fair', 'Poor' ].sample,
-        user_id: [1,4,6].sample
+        user_id: [8,9].sample
     }
     instruments.push(new_instrument)
 end

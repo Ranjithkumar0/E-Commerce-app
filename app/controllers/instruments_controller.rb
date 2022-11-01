@@ -12,6 +12,10 @@ class InstrumentsController < ApplicationController
   def show
   end
 
+  def my_instruments
+    @instruments = Instrument.filter_by_user_id(current_user.id) if user_signed_in?
+  end
+
   def add
     @my_token = Checkout.filter_by_user_id(current_user.id) if user_signed_in?
 

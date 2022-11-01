@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :music, only:[:index]
   end
   post "/instruments/:id", to: 'instruments#add', as: 'add'
+  get "/my_instruments", to: 'instruments#my_instruments', as: 'my_instruments'
 
   root 'instruments#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

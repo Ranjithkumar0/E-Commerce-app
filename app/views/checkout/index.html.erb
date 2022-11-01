@@ -28,7 +28,7 @@
         <%= truncate(instrument.description, length: 140) %>
       </div>
       <div class="column is-3 has-text-right">
-        <strong class="f4"><%= number_to_currency(instrument.price) %></strong> 
+        <strong class="f4"><%= number_to_currency(instrument.price, unit: "₹") %></strong> 
         <% @total += instrument.price %>
       </div>
     </div>
@@ -47,7 +47,7 @@
     </div>
     <div class="column total has-text-right">
       <h4 class="title is-4">
-        <span class="f5 has-text-grey">Total:</span> <%= number_to_currency(@total) %>
+        <span class="f5 has-text-grey">Total:</span> <%= number_to_currency(@total, unit: "₹") %>
       </h4>
     </div>
     <%= link_to 'Buy', payments_path, class: "button is-danger" %>
