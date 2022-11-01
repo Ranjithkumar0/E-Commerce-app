@@ -4,7 +4,7 @@ class InstrumentsController < ApplicationController
   # GET /instruments
   # GET /instruments.json
   def index
-    @instruments = Instrument.all.order("created_at desc").paginate(page: params[:page], per_page: 10)
+    @instruments = Instrument.all.order("created_at desc").paginate(page: params[:page], per_page: 15)
   end
 
   # GET /instruments/1
