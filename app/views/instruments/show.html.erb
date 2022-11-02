@@ -5,18 +5,6 @@
     <div class="column is-8">
       <h1 class="title is-2"><%= @instrument.title %></h1>
 
-      <%# <ul class="pv1">
-        <% if @instrument.brand? %>
-        <%# <li class="inline-block pr3"><%= @instrument.brand %>
-        <%# <% end %>
-
-        <%# <li class="inline-block pr3"><%= @instrument.model %>
-
-        <%# <% if @instrument.condition? %> 
-        <%# <li class="inline-block pr3"><%= @instrument.condition %>
-        <%# <% end %> 
-      <%# </ul> %> 
-
       <div class="feature-image">
       <% if @instrument.image.attached? %>
         <%= image_tag @instrument.image%>

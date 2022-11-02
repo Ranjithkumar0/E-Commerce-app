@@ -56,8 +56,7 @@ class LineItemsController < ApplicationController
 
   # DELETE /line_items/1
   # DELETE /line_items/1.json
-  #<%= link_to 'Remove Item', line_item, method: :delete, data: { confirm: "Are you sure? " }, class: "button is-small mb4" %>
-
+  
   def destroy
     @cart = Cart.find(session[:cart_id])
     @line_item.destroy

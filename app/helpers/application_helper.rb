@@ -7,4 +7,4 @@ module ApplicationHelper
       total = @cart.line_items.map(&:quantity).sum
       return total if total >= 0
     end
-  end
+end
