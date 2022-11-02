@@ -43,9 +43,15 @@
   </div>
   <% end %>
   <% end %>
+   
+
 </div>
-<br>
-<div>
-  <%= will_paginate %>
+
+
+<div class="text-center"><div class=" justify-content-center">
+<ul class="pagination" style="display: inline-block">
+<%= paginate @instruments %>
+</ul>
 </div>
-<br>
+
+ 

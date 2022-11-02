@@ -4,7 +4,7 @@ class InstrumentsController < ApplicationController
   # GET /instruments
   # GET /instruments.json
   def index
-    @instruments = Instrument.all.order("created_at desc").paginate(page: params[:page], per_page: 15)
+    @instruments = Instrument.all.order("created_at desc").page params[:page]
   end
 
   # GET /instruments/1
@@ -13,7 +13,7 @@ class InstrumentsController < ApplicationController
   end
 
   def my_instruments
-    @instruments = Instrument.filter_by_user_id(current_user.id) if user_signed_in?
+    @instruments = Instrument.filter_by_user_id(current_user.id).page params[:page] if user_signed_in?
   end
 
   def add

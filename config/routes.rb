@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :checkout
   resources :my_order
     resources :instruments do 
+      get 'page/:page', action: :index, on: :collection
     member do 
       put "add", to: "instruments#music"
       put "remove", to: "instruments#music"

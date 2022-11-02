@@ -10,7 +10,7 @@ class Instrument < ApplicationRecord
   validates :description, length: { maximum: 1000, too_long: "%{count} characters is the maximum aloud. "}
   validates :title, length: { maximum: 140, too_long: "%{count} characters is the maximum aloud. "}
   validates :price, length: { maximum: 7 }
-
+  paginates_per 1
   BRAND = %w{ Fender Gibson Epiphone ESP Martin Dean Taylor Jackson PRS  Ibanez Charvel Washburn }
   FINISH = %w{ Black White Navy Blue Red Clear Satin Yellow Seafoam }
   CONDITION = %w{ New Excellent Mint Used Fair Poor }

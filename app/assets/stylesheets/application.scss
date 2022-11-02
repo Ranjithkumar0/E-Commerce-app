@@ -77,3 +77,46 @@ $link-hover: #222;
   html {
     background-color: rgb(253, 233, 179);
   }
+
+  .pagination {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+.page{
+    text-align: center;
+}
+.pagination a {
+    margin: 0 4px;
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid gray;
+}
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+.pagination a:hover:not(.active) {background-color: #ddd;}
+ul{
+    list-style: none;
+    display: flex;
+}
+.pagination a:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.pagination a:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+
+
+
+
+
+
+
+
